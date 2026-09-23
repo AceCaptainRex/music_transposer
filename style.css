@@ -1,0 +1,239 @@
+*, *::before, *::after {
+    box-sizing: border-box; 
+    margin: 0; 
+    padding: 0; 
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: #f9f9f9;
+  color: #1a1a1a;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 2rem 1rem;
+}
+
+.app {
+  width: 100%;
+  max-width: 700px;
+}
+
+/* ── Header ── */
+.top-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 1.5rem;
+}
+.top-bar h1 {
+  font-size: 18px;
+  font-weight: 500;
+  color: #1a1a1a;
+}
+.top-bar i {
+  font-size: 20px;
+  color: #666;
+}
+
+.top-bar-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.subtitle {
+  font-size: 14px;
+  color: #888;
+}
+
+/* ── Instrument selectors ── */
+.translator {
+  display: grid;
+  grid-template-columns: 1fr 42px 1fr;
+  align-items: end;
+  gap: 12px;
+  margin-bottom: 1.25rem;
+}
+.slot label {
+  font-size: 11px;
+  color: #888;
+  display: block;
+  margin-bottom: 6px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.slot select {
+  width: 100%;
+  font-size: 14px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  background: #fff;
+  color: #1a1a1a;
+  cursor: pointer;
+  appearance: auto;
+}
+.slot select:hover { border-color: #bbb; }
+.slot select:focus { 
+    outline: none; 
+    border-color: #888; 
+    box-shadow: 0 0 0 2px rgba(0,0,0,0.06); 
+}
+
+.swap-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  background: #f0f0f0;
+  color: #666;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  transition: background 0.15s;
+  margin-bottom: 0;
+}
+.swap-btn:hover { background: #e4e4e4; color: #1a1a1a; }
+
+/* ── Semitone indicator ── */
+.semitone-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 1rem;
+  font-size: 13px;
+  color: #888;
+}
+.semitone-badge {
+  background: #f0f0f0;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 4px 12px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #1a1a1a;
+  min-width: 60px;
+  text-align: center;
+}
+
+/* ── Input / Output ── */
+.io-area {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 1rem;
+}
+.io-box label {
+  font-size: 11px;
+  color: #888;
+  display: block;
+  margin-bottom: 6px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.io-box textarea {
+  width: 100%;
+  min-height: 130px;
+  font-size: 15px;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  background: #fff;
+  color: #1a1a1a;
+  resize: vertical;
+  line-height: 1.6;
+}
+.io-box textarea:focus { 
+    outline: none; 
+    border-color: #888; 
+    box-shadow: 0 0 0 2px rgba(0,0,0,0.06); 
+}
+
+#output-area {
+  background: #f5f5f5;
+  cursor: default;
+  color: #1a1a1a;
+}
+#output-area.has-error {
+  border-color: #e53e3e;
+  color: #e53e3e;
+}
+
+.tag {
+  display: inline-block;
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 99px;
+  background: #e8f0fe;
+  color: #3a5fcf;
+  margin-left: 6px;
+  vertical-align: baseline;
+  font-weight: 500;
+  text-transform: none; /* Prevents capital "B" label on flats */
+}
+
+/* ── Footer ── */
+.footer-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.transpose-btn {
+  padding: 9px 22px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background: #fff;
+  color: #1a1a1a;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.12s;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.transpose-btn:hover { background: #f0f0f0; }
+.transpose-btn:active { transform: scale(0.98); }
+
+.hint {
+  font-size: 12px;
+  color: #aaa;
+  flex: 1;
+}
+
+/* ── Validation error box ── */
+.validation-box {
+  margin-top: 10px;
+  border-radius: 8px;
+  border: 1px solid #f5c6c6;
+  background: #fff5f5;
+  padding: 10px 14px;
+  display: none;
+}
+.validation-box.visible { display: block; }
+.validation-box .v-title {
+  font-size: 13px;
+  font-weight: 500;
+  color: #c53030;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.validation-box .v-item {
+  font-size: 12px;
+  color: #c53030;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+  padding: 2px 0;
+}
+
+/* ── Responsive ── */
+@media (max-width: 500px) {
+  .io-area { grid-template-columns: 1fr; }
+  .translator { grid-template-columns: 1fr 42px 1fr; }
+}

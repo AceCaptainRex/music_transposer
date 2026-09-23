@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Music Transposer</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.47.0/tabler-icons.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<div class="app">
+  <div class="top-bar">
+  <i class="ti ti-music"></i>
+  <div class="top-bar-text">
+    <h1>Music Transposer</h1>
+    <p class="subtitle">By Alessio B</p>
+  </div>
+</div>
+
+  <div class="translator">
+    <div class="slot">
+      <label>From instrument/key</label>
+      <select id="from-select"></select>
+    </div>
+    <button class="swap-btn" id="swap-btn" aria-label="Swap instruments">
+      <i class="ti ti-arrows-right-left"></i>
+    </button>
+    <div class="slot">
+      <label>To instrument/key</label>
+      <select id="to-select"></select>
+    </div>
+  </div>
+
+  <div class="semitone-row">
+    <span>Transposition:</span>
+    <span class="semitone-badge" id="semitone-display">0 semitones</span>
+  </div>
+
+  <div class="io-area">
+    <div class="io-box">
+      <label>Input <span class="tag" id="from-tag">C</span></label>
+      <textarea id="input-area" placeholder="e.g. C  D  Em  F#m7&#10;Bb  F  Gm  Eb&#10;C  Am  F  G"></textarea>
+    </div>
+    <div class="io-box">
+      <label>Output <span class="tag" id="to-tag">C</span></label>
+      <textarea id="output-area" readonly></textarea>
+    </div>
+  </div>
+
+  <div class="footer-row">
+    <button class="transpose-btn" id="go-btn">
+      <i class="ti ti-arrows-transfer-up"></i> Transpose!
+    </button>
+    <span class="hint">Supports notes (e.g. C, F#, Bb), chords (e.g. Am, Gmaj7, Bb7, Ebm), as well as mixed lines</span>
+  </div>
+
+  <div class="validation-box" id="validation-box">
+    <div class="v-title"><i class="ti ti-alert-triangle"></i> Invalid input! Please check the following tokens:</div>
+    <div id="validation-list"></div>
+  </div>
+</div>
+
+<script src="transposer.js"></script>
+</body>
+</html>
